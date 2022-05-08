@@ -1,0 +1,118 @@
+html,
+body,
+main,
+form {
+    height: 100%;
+    overflow: hidden;
+}
+
+.form-fields {
+    box-shadow: 0 0 10px #646464;
+    height: calc(90% - 4em);
+    margin: 2em auto;
+    overflow: hidden auto;
+    white-space: nowrap;
+    width: 90%;
+}
+
+.form-fields .fields,
+.form-fields .image-container {
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    white-space: normal;
+    width: 50%;
+}
+
+.form-fields .image-container {
+    position: sticky;
+    top: 0;
+}
+
+.field-group {
+    padding: 1.5em;
+}
+
+.field-group>h3 {
+    margin-bottom: 0.5em;
+}
+
+.field-group>h3>.message {
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+select {
+    border: none;
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    margin: 0.25em;
+    max-width: 100%;
+    outline: none;
+    padding: 1em;
+    width: 225px;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border: 1px solid #9d68f2;
+}
+
+.checkbox-label,
+.radio-label {
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: block;
+}
+
+label span {
+    position: relative;
+    top: -2px;
+}
+
+.radio-label:not(:last-child) span {
+    margin-right: 10px;
+}
+
+.form-fields .image-container img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.form-buttons {
+    height: 10%;
+}
+
+.form-buttons .button-container {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+input[type="reset"],
+input[type="submit"] {
+    background-color: #9d68f2;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5em 1em;
+}
+
+input[type="reset"] {
+    margin-right: 10px;
+}

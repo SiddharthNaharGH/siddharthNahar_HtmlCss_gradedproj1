@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/labTest.css">
+    <title>Lab</title>
+</head>
+
+<body>
+    <main>
+        <form name="labTest" method="post" onsubmit="return validateForm()">
+            <div class="form-fields">
+                <div class="fields">
+                    <section class="field-group">
+                        <h3>1. Your Contact Details</h3>
+                        <input type="text" name="fullName" placeholder="Full Name" required />
+                        <input type="text" name="patientId" placeholder="Patient Id if exists" />
+                        <input type="tel" name="contactNumber" placeholder="Contact Number" required />
+                        <input type="email" name="emailId" placeholder="Email Id" required />
+                    </section>
+
+                    <section class="field-group">
+                        <h3>2. Address</h3>
+                        <input type="text" name="houseNumber" placeholder="House Number" required />
+                        <input type="text" name="street" placeholder="Street" required />
+                        <input type="text" name="area" placeholder="Area" required />
+                        <select name="district" required>
+                            <option value="">City</option>
+                            <option value="Ajmer">Ajmer</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Jodhpur">Jodhpur</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Gurugram">Gurugram</option>
+                        </select>
+                    </section>
+
+                    <section class="field-group">
+                        <h3>
+                            3. Test Type
+                            <span class="message">(Check atleast one box without fail)</span>
+                        </h3>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="cbc" value="CBC" class="test-type" />
+                            <span>CBC</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="completeUrine" value="Complete Urine" class="test-type" />
+                            <span>Complete Urine</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="lipidProfile" value="Lipid Profile" class="test-type" />
+                            <span>Lipid Profile</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="tsh" value="TSH" class="test-type" />
+                            <span>Thyroid Stimulating Hormone (TSH)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="glucose" value="Glucose" class="test-type" />
+                            <span>Glucose Test</span>
+                        </label>
+                    </section>
+
+                    <section class="field-group">
+                        <h3>4. Do you want a hard copy of the report?</h3>
+                        <label class="radio-label">
+                            <input type="radio" name="reportHardCopy" value="Yes" checked />
+                            <span>Yes</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="reportHardCopy" value="No" />
+                            <span>No</span>
+                        </label>
+                    </section>
+
+                    <section class="field-group">
+                        <h3>5. Select your comfortable date and time</h3>
+                        <input type="date" name="testDate" required />
+                        <input type="time" name="testTime" min="07:00" max="19:00" required />
+                    </section>
+                </div>
+                <div class="image-container">
+                    <img src="./images/labTests/lab-test.jpg" alt="Image not found" />
+                </div>
+            </div>
+            <div class="form-buttons">
+                <div class="button-container">
+                    <input type="reset" />
+                    <input type="submit" />
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        // setting date range from tomorrow to next 7 days
+        var testDate = document.getElementsByName("testDate")[0];
+
+        var minDate = new Date();
+        minDate.setDate(minDate.getDate() + 1);
+        testDate.min = minDate.toISOString().split('T')[0];
+
+        var maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + 7);
+        testDate.max = maxDate.toISOString().split('T')[0];
+
+        function validateForm() {
+            var testTypeCheckboxes = document.getElementsByClassName("test-type");
+
+            for (var i = 0; i < testTypeCheckboxes.length; i++) {
+                if (testTypeCheckboxes[i].checked) {
+                    return true;
+                }
+            }
+
+            alert("Test type is required");
+            return false;
+        }
+    </script>
+</body>
+
+</html>
